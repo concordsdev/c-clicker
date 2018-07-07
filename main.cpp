@@ -12,49 +12,40 @@ bool toggled = false;
 float next_random_delay = 0.0f;
 
 void run_menu( void ) {
-	while ( true ) {
-		void* hConsoleOutput = GetStdHandle( STD_OUTPUT_HANDLE );
+    while ( true ) {
+        void* hConsoleOutput = GetStdHandle( STD_OUTPUT_HANDLE );
 
-		WORD color; // dx
-		const char *v1; // rcx
+        WORD color; // dx
+        const char *v1; // rcx
 
-		SetConsoleTextAttribute( hConsoleOutput, 15 );
-		printf( "\rState: " );
-		color = 12;
+        SetConsoleTextAttribute( hConsoleOutput, 15 );
+        printf( "\rState: " );
+        color = 12;
 
-		if ( toggled )
-			color = 10;
+        if ( toggled )
+            color = 10;
 
-		SetConsoleTextAttribute( hConsoleOutput, color );
+        SetConsoleTextAttribute( hConsoleOutput, color );
 
-		v1 = "[OFF]";
+        v1 = "[OFF]";
 
-		if ( toggled )
-			v1 = "[ON] ";
+        if ( toggled )
+            v1 = "[ON] ";
 
-		printf( v1 );
-		SetConsoleTextAttribute( hConsoleOutput, 15 );
-		printf( "\tCPS: " );
-		SetConsoleTextAttribute( hConsoleOutput, 5 );
-		float cps = 1000.0f / next_random_delay;
-		printf( "%2.2f", cps );
+        printf( v1 );
+        SetConsoleTextAttribute( hConsoleOutput, 15 );
+        printf( "\tCPS: " );
+        SetConsoleTextAttribute( hConsoleOutput, 5 );
+        float cps = 1000.0f / next_random_delay;
+        printf( "%2.2f", cps );
 
-		if ( cps < 10.0f )
-			printf( " " );
-	}
+        if ( cps < 10.0f )
+            printf( " " );
+
+        Sleep( 50 );
+    }
 }
 
-void gen_random( char* s, const int len ) {
-	static const char alphanum[ ] =
-		"0123456789"
-		"ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-		"abcdefghijklmnopqrstuvwxyz";
-
-	for ( int i = 0; i < len; ++i )
-		s[ i ] = alphanum[ rand( ) % ( sizeof( alphanum ) - 1 ) ];
-
-	s[ len ] = 0;
-}
 
 void main_autoclicker_thread( void ) {
 	static bool pressed = false;
