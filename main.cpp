@@ -1,6 +1,7 @@
 /*
 REVERSED BY IT'S ME ON 7/6/2018
 whoever made this, it was very disorganized. some things could be done more simply :)
+shit clicker hhhhhhhhhhhh
 */
 
 #include <Windows.h>
