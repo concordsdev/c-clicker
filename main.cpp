@@ -130,9 +130,9 @@ int main( ) {
 	cursorInfo.bVisible = false;
 	SetConsoleCursorInfo( hConsoleOutput, &cursorInfo );
 	SetConsoleTextAttribute( hConsoleOutput, 13 );
-	printf( "Vepe - v1.0\n" );
+	printf( "Vepe - v1.0 reversed hhh\n" );
 	SetConsoleTextAttribute( hConsoleOutput, 5 );
-	printf( "Made with love by Erouax\n\n\n" );
+	printf( "Reversed by it's me\n\n\n" );
 	SetConsoleTextAttribute( hConsoleOutput, 8 );
 	printf( "Destruct: F8\nToggle: F4\n\n\n" );
 	void* v4 = CreateThread( nullptr, 0, ( LPTHREAD_START_ROUTINE ) main_clicking_thread, nullptr, 0, nullptr );
